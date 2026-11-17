@@ -1,0 +1,72 @@
+
+# завдання 1
+
+import math
+
+r = float(input("Радіус: "))
+area = math.pi * r ** 2
+
+a = float(input("Перший катет: "))
+b = float(input("Другий катет: "))
+hypotenuse = math.sqrt(a ** 2 + b ** 2)
+
+n = int(input("Предметів: "))
+k = int(input("В упаковці: "))
+packages = math.ceil(n / k)
+
+print("Площа круга:", round(area, 2))
+print("Гіпотенуза:", round(hypotenuse, 2))
+print("Потрібно упаковок:", packages)
+
+
+# завдання 2
+
+import random
+import statistics
+
+n = int(input("Кількість оцінок: "))
+
+while n <= 0:
+    n = int(input("Введіть додатне число: "))
+
+grades = []
+
+for i in range(n):
+    grades.append(random.randint(1, 12))
+
+print("Оцінки:", grades)
+print("Min:", min(grades))
+print("Max:", max(grades))
+print("Середнє:", round(statistics.mean(grades), 2))
+print("Медіана:", statistics.median(grades))
+
+high = 0
+
+for grade in grades:
+    if grade >= 10:
+        high += 1
+
+print("Оцінок 10–12:", high)
+
+
+# завдання 3
+
+from datetime import date
+
+year = int(input("Рік: "))
+month = int(input("Місяць: "))
+day = int(input("День: "))
+
+event = date(year, month, day)
+today = date.today()
+
+difference = event - today
+
+if difference.days > 0:
+    print("Залишилося", difference.days, "днів")
+
+elif difference.days < 0:
+    print("Минуло", -difference.days, "днів")
+
+else:
+    print("Сьогодні день події!")
